@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentense</title>
+    <style>
+    #sen{
+         color: blue;
+         width: 400px;
+         height:100px
+
+      }
+     #target{
+         color: purple;
+         height:200px;
+         width:400px
+     } 
+      </style>
+</head>
+<body>
+    <form onsubmit="targetFun();return false">
+ 
+      <textarea type="text" placeholder="sentense" id="sen" onfocus="this.value=''"></textarea>
+      <input type="submit"></input> 
+
+      </form>
+      Show Here:<textarea id="target"></textarea>
+<button onclick="clearFun()">Clear</button>
+
+    <script>
+function targetFun(){
+  var senVal = document.getElementById("sen").value
+  var valuef= senVal.split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join('')
+  var valNoDot = valuef.replaceAll('.','') //.replace(/\./g,' ')
+  var final = valNoDot.split(' ').map(word => word.charAt(0).toLowerCase() + word.substring(1)).join('')
+  console.log(final)
+  document.getElementById("target").innerHTML= final
+}
+
+
+function clearFun() {
+        var clearArea = document.getElementById('target').value;
+        alert(clearArea);
+      }
+    </script>
+</body>
+</html>
