@@ -32,7 +32,7 @@
 function targetFun(){
   var senVal = document.getElementById("sen").value
   var valuef= senVal.split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join('')
-  var valNoDot = valuef.replaceAll('.','') //.replace(/\./g,' ')
+  var valNoDot = valuef.replaceAll('.','').replaceAll(',','') //.replace(/\./g,' ')
   var final = valNoDot.split(' ').map(word => word.charAt(0).toLowerCase() + word.substring(1)).join('')
   console.log(final)
   document.getElementById("target").innerHTML= final
